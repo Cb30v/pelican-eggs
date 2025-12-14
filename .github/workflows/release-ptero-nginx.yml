@@ -1,31 +1,41 @@
-name: Nginx 8.1
+name: Berny · Nginx PHP 8.1
 
 on:
   workflow_dispatch:
 
 jobs:
   push:
-    name: "nginx-ptero:8.1"
+    name: "berny-nginx:8.1"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
+
     steps:
-      - uses: actions/checkout@v2
-      - uses: docker/setup-qemu-action@v1
-      - uses: docker/setup-buildx-action@v1
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
         with:
           version: "v0.5.1"
           buildkitd-flags: --debug
-      - uses: docker/login-action@v1
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.PUSH_TOKEN }}
-      - uses: docker/build-push-action@v2
+
+      - name: Build & Push Docker image
+        uses: docker/build-push-action@v2
         with:
           context: ./
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ghcr.io/sigma-production/nginx-ptero:8.1
+            ghcr.io/cb30v/nginx-pelican:8.1
