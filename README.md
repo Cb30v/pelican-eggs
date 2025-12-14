@@ -1,17 +1,17 @@
 # Sigma Productions – Pterodactyl & Pelican Eggs
 
-This repository contains **Pterodactyl / Pelican eggs** maintained by **Sigma Productions**, providing preconfigured setups for **web hosting** (with WordPress support) and **internet radio streaming** (Icecast2 + Liquidsoap).  
+This repository contains **Pelican eggs** maintained by **Sigma Productions**, providing preconfigured setups for **web hosting** (with WordPress support) and **internet radio streaming** (Icecast2 + Liquidsoap).  
 
 ---
 
 ## 📦 Available Eggs
 
-### 1. 🌐 Pterodactyl Webhost Egg
+### 1. 🌐 Pelican Webhost Egg
 Easily deploy a web server with optional WordPress support.
 
 #### 🔧 How to Use:
 1. Download the JSON egg file from the releases page.
-2. Import the egg into your **Pterodactyl panel**.
+2. Import the egg into your **pelican panel**.
 3. Create a new server.  
    - Optionally, enable **WordPress** during setup for automatic installation.  
 4. Install **Composer** packages either during setup or afterward.
